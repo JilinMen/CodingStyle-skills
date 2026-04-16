@@ -65,3 +65,12 @@ For multi-step tasks, state a brief plan:
 ```
 
 Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
+
+## 5. Training Workflow Hygiene
+** Make training reproducible, observable, and maintainable. **
+For deep learning training code:
+- Use visualization tools (TensorBoard, W&B, Matplotlib) to track loss, metrics, learning rate, and other signals
+- Implement robust checkpointing: best‑model saving plus periodic snapshots
+- Centralize hyperparameters in a config file or dataclass—never scatter them across the codebase
+- Structure training into modular components (data loading, model creation, optimizer setup, training loop, evaluation, logging)
+- Ensure every training script is reproducible, traceable, and extensible
