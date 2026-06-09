@@ -66,7 +66,17 @@ For multi-step tasks, state a brief plan:
 
 Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
 
-## 5. Training Workflow Hygiene
+## 5. Deterministic Scripts and Outputs
+
+**Keep script runs reproducible and artifact locations explicit.**
+
+When writing or modifying scripts:
+- Do not use `argparse` in any code.
+- Put run parameters directly in the script as top-level constants, config objects, or dataclasses so repeated executions use the same settings unless the script itself is edited.
+- Add comments inside the script that explain where generated artifacts are written, including images, tables, model files, logs, and reports.
+- At the end of every script, print a concise summary of the output locations for all generated artifacts.
+
+## 6. Training Workflow Hygiene
 **Make training reproducible, observable, and maintainable.**
 For deep learning training code:
 - Use visualization tools (TensorBoard, W&B, Matplotlib) to track loss, metrics, learning rate, and other signals
